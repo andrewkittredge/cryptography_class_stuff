@@ -45,16 +45,17 @@ def remembering_euclidian_algorithm(x, y):
 def find_coefficients(x, y):
     _, expressions = remembering_euclidian_algorithm(x, y)
     expressions = list(reversed(expressions))
-    prev_coefficient = expressions[0].coefficient
+    
     first_coefficient = 1
-    for i in range(len(expressions)):
-        second_coefficient = first_coefficient + prev_coefficient * expressions[i].coefficient
-        first_coefficient = prev_coefficient
-        prev_second_coefficient = second_coefficient
-        print i, first_coefficient, second_coefficient, expressions[i]
-
+    second_coefficient = expressions[0].coefficient
+    for i in range(len(expressions) - 1):
+        prev_first_coefficient = first_coefficient
+        first_coefficient = second_coefficient
+        next_line = expressions[i + 1]
+        second_coefficient = prev_first_coefficient + second_coefficient * next_line.coefficient
+        
     return first_coefficient, second_coefficient
 
 
 if __name__ == '__main__':
-    find_coefficients(614, 513)
+    print find_coefficients(614, 513)
