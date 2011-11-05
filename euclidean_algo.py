@@ -43,6 +43,7 @@ def remembering_euclidian_algorithm(x, y):
     return ret_val, expressions
 
 def find_coefficients(x, y):
+    #Need to get the order correct.
     _, expressions = remembering_euclidian_algorithm(x, y)
     expressions = list(reversed(expressions))
     
