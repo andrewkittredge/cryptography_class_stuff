@@ -42,7 +42,7 @@ def remembering_euclidian_algorithm(x, y):
     ret_val = 1 if remainder == 1 else dividend
     return ret_val, expressions
 
-def find_coefficients(x, y):
+def extended_euclidean_algorithm(x, y):
     _, expressions = remembering_euclidian_algorithm(x, y)
     expressions = list(reversed(expressions))
     

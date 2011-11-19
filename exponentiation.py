@@ -1,4 +1,4 @@
-def exponentiation(X, E, m):
+def fast_exponentiation(X, E, m):
     Y = 1
     while E != 0:
         if E % 2 == 0:
@@ -7,8 +7,8 @@ def exponentiation(X, E, m):
         else:
             Y = (X * Y) % m
             E = E - 1
-        print X, E, Y
+        #print X, E, Y
     return Y
 
 if __name__ == '__main__':
-    exponentiation(2, 56, 1001)
+    fast_exponentiation(2, 56, 1001)
