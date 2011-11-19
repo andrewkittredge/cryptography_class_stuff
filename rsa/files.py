@@ -1,12 +1,14 @@
-def write_public_info(pubic_key, encryption_key, out_file):
+def write_public_info(public_key, encryption_key, out_file):
     with open(out_file, 'wb') as out:
-        out.write_line(encyption_key)
-        out.write_line(public_key)
+        out.write(str(encryption_key) + '\n')
+        out.write(str(public_key) + '\n')
 
 def read_public_info(file):
     with open(file, 'rb') as input:
-        encryption_key = input.readline()
-        decryption_key = input.readline()
+        encryption_key = int(input.readline().strip())
+        public_key = int(input.readline().strip())
+
+    return encryption_key, public_key
 
 def write_private_info(p, q, file):
     with open(file, 'wb') as out:
