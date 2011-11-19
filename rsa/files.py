@@ -12,10 +12,11 @@ def read_public_info(file):
 
 def write_private_info(p, q, file):
     with open(file, 'wb') as out:
-        out.write_line(p)
-        out.write_line(q)
+        out.write('\n'.join(map(str, (p, q))))
 
 def read_private_info(file):
     with open(file, 'rb') as input:
-        p = input.read_line()
-        q = input.read_line()
+        p = int(input.readline().strip())
+        q = int(input.readline().strip())
+
+    return p, q
