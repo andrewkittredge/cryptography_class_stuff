@@ -13,7 +13,7 @@ def multiplicative_inverse(theta_n, key):
 def public_knowledge():
     return 12091, 3
 
-def decrypt(n, decrypt_key, encypted_message):
+def decrypt(n, decrypt_key, encrypted_message):
     return fast_exponentiation(encrypted_message, decrypt_key, n)
 
 def encrypt(n, encrypt_key, message):
