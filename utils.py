@@ -15,3 +15,14 @@ def int_to_string(int):
     binary_repr = int_to_binary_string(int)
     chunks = chunkify(binary_repr)
     return make_string_from_chunks(chunks)
+
+
+
+
+def prime_factorization(n):
+    prime_factors = set()
+    for i in range(2, n):
+        while n % i == 0:
+            prime_factors.add(i)
+            n = n / i
+    return prime_factors

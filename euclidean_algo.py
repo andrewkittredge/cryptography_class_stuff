@@ -58,5 +58,3 @@ def extended_euclidean_algorithm(x, y):
     return first_coefficient, second_coefficient
 
 
-if __name__ == '__main__':
-    print find_coefficients(614, 513)
