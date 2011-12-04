@@ -25,4 +25,4 @@ def prime_factorization(n):
         while n % i == 0:
             prime_factors.add(i)
             n = n / i
-    return prime_factors
+    return list(prime_factors)
