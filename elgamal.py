@@ -11,12 +11,12 @@ def generate_keys():
 
     '''
 
-    p = large_random_prime()
-    b = random_near_primitive_root(p)
-    l = random.randint(1, p - 1)
-    c = fast_exponentiation(b, l, p)
+    cyclic_group = large_random_prime()
+    generator = random_near_primitive_root(cyclic_group)
+    private_key = random.randint(1, cyclic_group - 1)
+    public_key = fast_exponentiation(generator, private_key, cyclic_group)
 
-    return (b, c, p), l
+    return (generator, public_key, cyclic_group), private_key
 
 def encrypt(message, b, c, p):
     r = large_random_prime()
@@ -58,4 +58,7 @@ class Tester(unittest.TestCase):
         message, header = 421, 661
         self.assertEqual(decrypt(message, header, l, p), 559)
 if __name__ == '__main__':
-    unittest.main()
+    #unittest.main()
+    #print encrypt(1235, 2, 6329323223, 8209120459)
+    print generate_keys()
+    print decrypt(20, 197, 72, 291)
