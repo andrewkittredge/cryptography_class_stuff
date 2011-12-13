@@ -57,6 +57,8 @@ class Tester(unittest.TestCase):
         p = 1009
         message, header = 421, 661
         self.assertEqual(decrypt(message, header, l, p), 559)
+        
+        
 if __name__ == '__main__':
     #unittest.main()
     #print encrypt(1235, 2, 6329323223, 8209120459)
