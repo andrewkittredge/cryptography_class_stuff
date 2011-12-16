@@ -59,6 +59,6 @@ def extended_euclidean_algorithm(x, y):
         next_line = expressions[i + 1]
         second_coefficient = prev_first_coefficient + second_coefficient * next_line.coefficient
         
-    return first_coefficient, second_coefficient
+    return second_coefficient
 
 
