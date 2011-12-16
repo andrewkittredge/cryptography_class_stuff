@@ -9,7 +9,7 @@ def p_and_q():
     return 107, 113
 
 def multiplicative_inverse(phi_n, key):
-    _, inverse_n = extended_euclidean_algorithm(phi_n, key)
+    inverse_n = extended_euclidean_algorithm(phi_n, key)
     inverse_n = inverse_n % phi_n
     return inverse_n
 
