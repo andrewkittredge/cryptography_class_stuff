@@ -27,7 +27,7 @@ def encrypt(message, b, c, p):
     
 def decrypt(message, header, l, p):
     c_r = fast_exponentiation(header, l, p)
-    _, inverse = extended_euclidean_algorithm(c_r, p)
+    inverse = extended_euclidean_algorithm(c_r, p)
     plaintext = (inverse * message) % p
     return plaintext
     
@@ -60,7 +60,7 @@ class Tester(unittest.TestCase):
         
         
 if __name__ == '__main__':
-    #unittest.main()
+    unittest.main()
     #print encrypt(1235, 2, 6329323223, 8209120459)
     print generate_keys()
     print decrypt(20, 197, 72, 291)
