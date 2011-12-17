@@ -36,8 +36,6 @@ def euclidean_algo(x, y):
 def extended_euclidean_algorithm(x, y):
     '''Returns the multiplicative inverse of two relatively prime numbers.
     
-    Should only return one integer, oh well.
-    
     '''
     _, expressions = remembering_euclidian_algorithm(x, y)
     expressions = list(reversed(expressions))
