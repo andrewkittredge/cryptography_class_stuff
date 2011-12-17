@@ -30,6 +30,9 @@ def remembering_euclidian_algorithm(x, y):
     ret_val = 1 if remainder == 1 else dividend
     return ret_val, expressions
 
+def euclidean_algo(x, y):
+    return remembering_euclidian_algorithm(x, y)[0]
+
 def extended_euclidean_algorithm(x, y):
     '''Returns the multiplicative inverse of two relatively prime numbers.
     
@@ -49,4 +52,8 @@ def extended_euclidean_algorithm(x, y):
         
     return second_coefficient
 
-
+import unittest
+class EuclideanAlgoTester(unittest.TestCase):
+    def test_euclidean_algorithm(self):
+        self.assertEqual(euclidean_algo(614, 513), 1)
+        self.assertEqual(euclidean_algo(1024, 88), 8)
