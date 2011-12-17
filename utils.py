@@ -7,3 +7,14 @@ def prime_factorization(n):
     return list(prime_factors)
 
 
+def gcd(x, y):
+    '''x and y are integers.'''
+    smaller, larger = sorted((x, y))
+    dividend = larger
+    modulus = smaller
+    remainder = True
+    while remainder:
+        remainder = dividend % modulus 
+        dividend = modulus
+        modulus = remainder
+    return dividend

@@ -1,17 +1,5 @@
 #An implementation of the Euclidean Algorithm.
 
-def gcd(x, y):
-    '''x and y are integers.'''
-    smaller, larger = sorted((x, y))
-    dividend = larger
-    modulus = smaller
-    remainder = True
-    while remainder:
-        remainder = dividend % modulus 
-        dividend = modulus
-        modulus = remainder
-    return dividend
-
 class Euclidean_Expression(object):
     def __init__(self, dividend, coefficient, modulus):
         self.dividend = dividend
