@@ -55,10 +55,20 @@ class Tester(unittest.TestCase):
         p = 1009
         message, header = 421, 661
         self.assertEqual(decrypt(message, header, l, p), 559)
+        self.assertEqual(decrypt(5154192, ))
         
-        
+from baby_step_giant_step import attack_elgamal
 if __name__ == '__main__':
-    unittest.main()
+    #unittest.main()
     #print encrypt(1235, 2, 6329323223, 8209120459)
-    print generate_keys()
-    print decrypt(20, 197, 72, 291)
+    #print generate_keys()
+    p = 3079259
+    b = 448
+    private_key = 7
+    public_key = fast_exponentiation(b, private_key, p)
+    print decrypt(message=683482,
+                   header=2054398,
+                   l=7,
+                   p=p)
+    #print decrypt(20, 197, 72, 291)
+    #print encrypt(92, b=448, c=881782, p=3079259)

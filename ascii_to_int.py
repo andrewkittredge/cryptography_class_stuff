@@ -24,16 +24,16 @@ def int_to_ascii(value):
 
 import unittest
 class TestAscciToInt(unittest.TestCase):
-    def test_ascii_to_int(self):
-        print ascii_to_int('a')
-        print ascii_to_int('A')
-        
-    
     def test_int_to_ascii(self):
         s = 'Now is the time for something something'
         message_int = ascii_to_int(s)
         self.assertTrue(int(message_int))
         self.assertEqual(int_to_ascii(message_int), s)
+        
+        message = 'hello world'
+        i = ascii_to_int(message)
+        self.assertEqual(i, 10965)
+        self.assertEqual(message, int_to_ascii(i))
 
 if __name__ == '__main__':
     unittest.main()
