@@ -3,8 +3,6 @@ import random
 from euclidean_algo import extended_euclidean_algorithm
 from utils import prime_factorization
 
-#TODO BLUM_BLUM SCHUB
-#TODO Miller Rabin
 
 def generate_keys():
     '''Alice builds a dicsrete-log public-key cipher system.
