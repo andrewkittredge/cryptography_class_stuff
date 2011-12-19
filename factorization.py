@@ -45,6 +45,6 @@ class AttackTester(unittest.TestCase):
         
 if __name__ == '__main__':
     #print pollards_rho(4993627030669)
-    print attack_rsa(n=4993627030669,
-                     e=202829,
-                     message=874814388105)
+    print attack_rsa(n=22779161373223907036709223293229496777,
+                     e=133325100753502750892526923899399,
+                     message=20395050182554241083161336405745338859)

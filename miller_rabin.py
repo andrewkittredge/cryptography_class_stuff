@@ -6,9 +6,12 @@ Created on Dec 4, 2011
 
 from exponentiation import fast_exponentiation
 import logging
+import random
 
 def miller_rabin(n, b):
-
+    '''Miller-Rabin test for primality.
+    
+    '''
 
     r = 0
     m = n - 1
@@ -27,6 +30,14 @@ def miller_rabin(n, b):
         else:
             power = power * 2
     return False
+
+def check_primality_miller_rabin(n, attempts=20):
+    for _ in range(0, attempts):
+        b = random.randint(1, n - 1)
+        prime = miller_rabin(n, b)
+        if not prime:
+            break
+    return prime
 
 import unittest
 class Test(unittest.TestCase):

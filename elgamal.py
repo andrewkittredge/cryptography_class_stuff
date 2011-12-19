@@ -1,7 +1,8 @@
 from exponentiation import fast_exponentiation
 import random
 from euclidean_algo import extended_euclidean_algorithm
-from utils import prime_factorization
+from utils import prime_factorization,large_random_prime, infinite_range
+from ascii_to_int import int_to_ascii
 
 
 def generate_keys():
@@ -22,6 +23,8 @@ def encrypt(message, b, c, p):
     encrypted_message = message * c_r % p
     header = fast_exponentiation(b, r, p)
     return encrypted_message, header
+
+
     
 def decrypt(message, header, l, p):
     c_r = fast_exponentiation(header, l, p)
@@ -29,13 +32,13 @@ def decrypt(message, header, l, p):
     plaintext = (inverse * message) % p
     return plaintext
     
-def large_random_prime():
+def _large_random_prime():
     return 291
 
-    
 def random_near_primitive_root(p):
+    start = random.randint(2, p - 1)
     primes_to_test = prime_factorization(p - 1)
-    for b in range(2, p):
+    for b in infinite_range(start, p):
         if primitive_root(b, primes_to_test, p):
             return b
             
@@ -57,18 +60,26 @@ class Tester(unittest.TestCase):
         self.assertEqual(decrypt(message, header, l, p), 559)
         self.assertEqual(decrypt(5154192, ))
         
-from baby_step_giant_step import attack_elgamal
 if __name__ == '__main__':
     #unittest.main()
     #print encrypt(1235, 2, 6329323223, 8209120459)
     #print generate_keys()
-    p = 3079259
-    b = 448
-    private_key = 7
-    public_key = fast_exponentiation(b, private_key, p)
-    print decrypt(message=683482,
-                   header=2054398,
-                   l=7,
-                   p=p)
-    #print decrypt(20, 197, 72, 291)
-    #print encrypt(92, b=448, c=881782, p=3079259)
+    #===========================================================================
+    # p = 3079259
+    # b = 448
+    # private_key = 7
+    # public_key = fast_exponentiation(b, private_key, p)
+    # print decrypt(message=683482,
+    #               header=2054398,
+    #               l=7,
+    #               p=p)
+    # #print decrypt(20, 197, 72, 291)
+    print encrypt(message=104105, 
+                  b=60096, 
+                  c=168710, 
+                  p=191747)
+
+    print int_to_ascii(decrypt(message=3415555458673405466, 
+                               header=1580194612606838012, 
+                               l=1245269559009664185, 
+                               p=4462768852845629707))

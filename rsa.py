@@ -3,11 +3,16 @@ from exponentiation import fast_exponentiation
 from utils import prime_factorization
 import random
 from ascii_to_int import ascii_to_int, int_to_ascii
+from utils import large_random_prime
 
 phi = lambda p, q : (p - 1) * (q - 1)
 
 def p_and_q():
     return 107, 113
+
+def large_random_p_and_q():
+    yield large_random_prime()
+    yield large_random_prime()
 
 def multiplicative_inverse(phi_n, key):
     inverse_n = extended_euclidean_algorithm(phi_n, key)
@@ -96,7 +101,7 @@ class Test_Sender_Reciever(unittest.TestCase):
         decrypted_message = bob.ascii_decrypt(encrypted_message)
         self.assertEqual(m, decrypted_message)
         
-        
+
 class Test(unittest.TestCase):
     def test_rsa(self):
         
@@ -114,8 +119,10 @@ class Test(unittest.TestCase):
         self.assertEqual(decrypted_message, message)
 
 if __name__ == '__main__':
-    #receiver = RSA_Reciever(generate_test_p_q, lambda p, q : 3)
-    #print 'n, e = %s, %s' % (receiver.n, receiver.e)
-    sender = RSA_Sender(n=4993627030669, encryption_key=202829)
-    print sender.ascii_encrypt('hi')
+    
+    #receiver = RSA_Reciever(large_random_p_and_q, encryption_key)
+    #print 'n, e, d = %s, %s, %s' % (receiver.n, receiver.e, receiver.d)
+    sender = RSA_Sender(n=2764265673801903878813725543443394597, 
+                        encryption_key=17220434537192801965991660579)
+    print sender.ascii_encrypt('merry xmas')
     
